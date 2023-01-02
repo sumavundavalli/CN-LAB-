@@ -1,0 +1,43 @@
+#include <stdio.h>
+#define BUFFER_SIZE 100
+
+int main() {
+    int n,orate;
+    int present_capacity, packet_size,ans;
+    present_capacity = 0;
+    printf("Enter the output rate of the bucket :: ");
+    scanf("%d",&orate);
+    while(present_capacity < BUFFER_SIZE)
+    {
+        printf("Do you have any packets to enter:: yes(1)/no(0)\n");
+        scanf("%d", &ans);
+        if(ans == 1)
+        {
+        printf("Enter the size of the packet:: ");
+        scanf("%d",&packet_size);
+        present_capacity = packet_size + present_capacity;
+        if(present_capacity > BUFFER_SIZE)
+        {
+            printf("cannot enter....buffer is full \n");
+
+        }
+        else
+        {
+        present_capacity = present_capacity - orate;
+        printf("Present capacity of the bucket == %d\n", present_capacity);
+            
+        }
+        }
+        
+        if(ans == 0)
+        {
+            
+                present_capacity = present_capacity - orate;
+                printf("present_capacity is %d\n", present_capacity);
+                n = present_capacity;
+
+        }
+        
+    }
+  
+}
